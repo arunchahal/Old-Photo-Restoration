@@ -1,0 +1,67 @@
+/* style.css - modern, compact UI */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box;}
+body{ margin:0; font-family:Inter,system-ui,Helvetica,Arial; background:var(--bg); color:#0f172a; }
+
+.app{ max-width:1200px; margin:28px auto; padding:18px; background:var(--card); border-radius:12px; box-shadow:0 8px 30px rgba(2,6,23,0.06); }
+
+.topbar{ display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #eef2ff; }
+.brand h1{ margin:0; font-size:1.25rem; }
+.brand .tag{ color:var(--muted); font-size:0.85rem; margin-left:8px; }
+.actions button{ margin-left:8px; padding:8px 12px; border-radius:8px; border:1px solid #e6eef8; background:#fff; cursor:pointer; }
+.actions button:disabled{ opacity:0.5; cursor:not-allowed; }
+
+.main{ display:flex; gap:18px; margin-top:18px; }
+.left{ width:360px; }
+.right{ flex:1; }
+
+.dropzone{
+  display:flex; align-items:center; justify-content:center; height:240px; border:2px dashed #e6eef8;
+  border-radius:8px; background:linear-gradient(180deg,#fff,#fbfdff); position:relative; cursor:pointer;
+}
+.dropzone input[type=file]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.dropzone .drop-text{ color:var(--muted); text-align:center; padding:10px; pointer-events:none; }
+
+.upload-controls{ margin-top:12px; display:flex; gap:12px; align-items:center; }
+.primary{ background:var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.status{ color:var(--muted); font-size:0.9rem; }
+
+.presets{ margin-top:14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.presets label{ color:var(--muted); margin-right:8px; }
+.preset{ padding:6px 10px; border-radius:8px; border:1px solid #e6eef8; background:#fff; cursor:pointer; }
+.preset.active{ background:linear-gradient(90deg,#2563eb,#3b82f6); color:#fff; border:none; }
+
+.ops-panel{ margin-top:16px; background:#fafbff; padding:12px; border-radius:8px; border:1px solid #eef2ff; }
+.ops-panel h3{ margin:0 0 8px 0; font-size:1rem; }
+.ops-panel label{ display:block; margin-bottom:8px; color:#0f172a; }
+.params{ margin-bottom:10px; color:var(--muted); font-size:0.95rem; }
+
+.op-buttons{ display:flex; gap:8px; margin-bottom:8px; }
+.op-buttons button{ padding:8px 10px; border-radius:8px; border:1px solid #e6eef8; background:#fff; cursor:pointer; }
+
+.toggle-inline{ display:block; margin-top:8px; color:var(--muted); font-size:0.9rem; }
+
+.viewer{ background:#fff; border-radius:8px; padding:12px; border:1px solid #eef2ff; min-height:420px; display:flex; flex-direction:column; }
+.compare-wrap{ position:relative; width:100%; height:450px; overflow:hidden; border-radius:8px; background:#111; display:flex; align-items:center; justify-content:center; }
+.compare-wrap .img{ position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; user-select:none; pointer-events:none; }
+.compare-wrap .before{ clip-path:inset(0 50% 0 0); } /* initial 50% */
+.slider{ position:absolute; top:0; left:50%; height:100%; width:4px; background:linear-gradient(180deg,#fff,#ccc); transform:translateX(-2px); cursor:ew-resize; z-index:20; border-radius:2px; box-shadow:0 0 8px rgba(0,0,0,0.18); }
+
+.viewer-footer{ display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+.meta .file-name{ font-weight:600; }
+.file-size{ color:var(--muted); font-size:0.9rem; }
+.progress{ display:flex; gap:8px; align-items:center; color:var(--muted); }
+.spinner{ width:18px; height:18px; border-radius:50%; border:3px solid rgba(0,0,0,0.08); border-top-color:var(--accent); animation:spin 1s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+.intermediates{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; padding:8px; background:#fbfcff; border-radius:8px; border:1px dashed #e6eef8; }
+.intermediates img{ width:160px; height:auto; border-radius:6px; border:1px solid #e6eef8; }
+
+.footer{ margin-top:14px; color:var(--muted); font-size:0.9rem; text-align:center; }
